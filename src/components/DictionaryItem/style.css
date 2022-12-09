@@ -1,0 +1,13 @@
+.body-dictionary_item{
+  display: flex;
+  justify-content: space-between;
+}
+.body-dictionary_item div{
+padding: 0 70px 0 0;
+}
+
+
+  .body-dictionary_item button{
+    margin: 0 0  0 15px;
+  }
+

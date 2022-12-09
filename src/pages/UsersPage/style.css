@@ -1,0 +1,10 @@
+.block1{
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 4px solid black;
+  padding: 15px 0 10px 0;
+}
+.block1 div{
+margin:  0 25% 0 0;
+}
+

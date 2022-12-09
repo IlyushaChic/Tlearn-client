@@ -1,0 +1,39 @@
+.forma {
+  position: relative;
+  border: 1px solid red;
+  background-color:white;
+height: 320px;
+width: 550px;
+  top: 100px;
+  left: 100px;
+}
+.formm {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-end;
+}
+.formm input{
+  margin: 0 auto;
+
+}
+.forma button{
+margin: 20px  0 0 0 ;
+  width: 100px;
+  height: 40px;
+
+
+}
+
+.for-text{
+  border: 1px solid black;
+text-decoration: none;
+  width: 400px;
+  height: 200px;
+}
+.for-header{
+  width: 400px;
+  height: 50px;
+  background-color: transparent;
+}

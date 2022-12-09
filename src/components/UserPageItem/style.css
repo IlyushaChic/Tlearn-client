@@ -1,0 +1,11 @@
+.qwe {
+  display: flex;
+  border-bottom: 2px solid black;
+  padding: 10px 0 10px 0;
+}
+
+
+
+.qwe div {
+  margin: 0 11% 0 0;
+}

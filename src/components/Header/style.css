@@ -1,0 +1,23 @@
+.header-block {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid black;
+  padding: 0 0 10px 0;
+}
+
+.header-interface {
+  display: flex;
+}
+
+.header-interface div {
+  padding: 0 20px 0 0;
+}
+.header-user {
+  display: flex;
+}
+.header-user div {
+  display: flex;
+}
+.header-user button {
+  margin: 0 0 0 10px;
+}

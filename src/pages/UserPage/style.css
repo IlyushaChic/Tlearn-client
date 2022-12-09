@@ -1,0 +1,9 @@
+.help {
+  display: flex;
+  border-bottom: 2px solid black;
+  padding: 10px 0 10px 0;
+}
+
+.help div {
+  margin: 0 10% 0 0;
+}
