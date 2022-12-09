@@ -19,7 +19,7 @@ const DictionaryPage = () => {
 
 
   return (
-    <div style={{position:'absolute'}}>
+    <div >
       <Header />
       <div className="header-dictionary">
         <div>id</div>

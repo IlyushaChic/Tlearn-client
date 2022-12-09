@@ -6,7 +6,7 @@
 }
 .header-dictionary div {
   padding: 0 90px 0 0;
-  font-weight: 800;
+
 }
 
 .add-dictionary{
@@ -31,7 +31,3 @@
   width: 140px;
 }
 
-.words{
-  margin: 0 0 0 0px;
-
-}
