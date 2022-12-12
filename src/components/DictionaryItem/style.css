@@ -1,13 +1,25 @@
 .body-dictionary_item{
   display: flex;
   justify-content: space-between;
+align-items: center;
+  border: 1px solid black;
+  width: 800px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
 }
-.body-dictionary_item div{
-padding: 0 70px 0 0;
+
+.name{
+  width: 160px;
+  text-align: center;
+}
+
+.word{
+  width: 40px;
+  text-align: center;
 }
 
 
   .body-dictionary_item button{
     margin: 0 0  0 15px;
   }
-

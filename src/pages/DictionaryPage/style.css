@@ -1,33 +1,41 @@
-.header-dictionary{
+.body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-dictionary {
+  width: 100vw;
   display: flex;
   padding: 10px 0px;
-  border-bottom: 3px solid black;
+  justify-content: space-between;
+  width: 770px;
+}
+
+.header-dictionary div {
   justify-content: space-between;
 }
-.header-dictionary div {
-  padding: 0 90px 0 0;
 
-}
-
-.add-dictionary{
+.add-dictionary {
   display: flex;
   justify-content: center;
   padding: 10px 0px;
-  border-bottom: 3px solid black;
-
 }
-.add-dictionary button{
-
+.add-dictionary button {
   width: 130px;
   height: 50px;
 }
 
-.body-dictionary{
+.body-dictionary {
   padding: 10px 0px;
-  border-bottom: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.blocki{
+.blocki {
   width: 140px;
 }
-

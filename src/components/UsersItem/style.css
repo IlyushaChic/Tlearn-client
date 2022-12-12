@@ -1,16 +1,22 @@
 .user-elem{
   display: flex;
-  border-bottom: 2px solid black;
-  padding: 20px;
+  border: 2px solid black;
+  border-radius:15px ;
+  align-items: center;
+  padding: 10px 0;
+  margin: 10px 0;
+  width: 800px;
 
 }
 .user-elem div {
 margin:  0 25% 0 0;
-
 }
 .user-elem button {
-margin:  0  0 0 25%;
-
+margin:  0  0 0 25%; 
 }
-
-
+.users-btn{
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+}
+ 

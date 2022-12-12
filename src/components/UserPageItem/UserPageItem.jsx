@@ -1,18 +1,26 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getUserDataFx } from "../../api/userClient";
+import "./style.css";
 
-const UserPageItem = () => {
+const UserPageItem = ({ id=1, naming="qwer", words=234}) => {
+
+
+
+
+
   return (
-    <div className='qwe'>
-    <div>1/2/3</div>
-    <div>Базовый/Средний</div>
-    <div>320/450</div>
-    <div>200/100</div>
-    <div>100/20</div>
-<hr />
+    <div className="qwe">
+      <div>{id}</div>
+      <div>{naming}</div>
+      <div>{words}</div>
+      <div>-</div>
+      <div>-</div>
+      <hr />
     </div>
+  );
+};
 
-  )
-}
-
-export default UserPageItem
+export default UserPageItem;
