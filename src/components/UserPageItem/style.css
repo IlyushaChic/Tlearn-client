@@ -1,4 +1,4 @@
-.qwe{
+.qwe {
   display: flex;
 
   padding: 10px 0 10px 0;
@@ -10,11 +10,28 @@
   margin: 10px 0;
 }
 
-
-
 .qwe div {
   width: 100px;
   margin: 0 90px 0 0;
+}
 
-
+.userpageitem__container {
+  padding: 30px;
+  margin: 20px;
+  width: 1000px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+.userpageitem__container-info{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.userpageitem__container-info div{
+  width: 100%;
+  text-align: center;
 }

@@ -2,18 +2,12 @@
 import api from './axiosClient';
 
 
-
 export class AuthClient{
-
-
 static async login(email){
   try{
-
     const result = await api.post('/auth/login',{email:email} )
     console.log(result);
     if(result.status===200){
-
-
       localStorage.setItem('auth',JSON.stringify(result.data))
       return true
     }
@@ -23,10 +17,8 @@ static async login(email){
   }
 }
 
-
 static async activate(activationLink){
   try{
-
     const result = await api.post('/auth/activate',{activationLink:activationLink} )
     console.log(result);
     if(result.status===200){

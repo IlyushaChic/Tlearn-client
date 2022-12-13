@@ -1,64 +1,65 @@
-.popap {
+.update__popap-wrapper {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0,0.7); 
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
-  }
-  
-  .popap__body{
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 10px;
-  }
-  
-  
-  .submit-file {
-      border: 1px solid black; 
-    background-color:white;
-    border-radius: 6px;
-    height: 320px;
-    width: 550px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  
-  .submit-file input {
-      align-items: center;
-      justify-content: center;
-    }
-  
-  .update-form{
-    font-size: 20px;
-    font-weight: 600;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-align-items: center;
-  }
-  .update-form input {
-    width: 400px;
-    border: 1px solid black;
-    height: 50px;
-  }
-  
-  .for-text{
-    border: 1px solid black;
-    width: 400px;
-    height: 200px;
-  }
-  
-  .for-header{
-    width: 400px;
-    height: 50px;
-    background-color: transparent;
-    align-items: center;
-  
-  }
-  
-  
+}
+.update__popap-body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+.update__popap-body_form {
+  background-color: whitesmoke;
+  border-radius: 6px;
+  height: 500px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.update__popap-body_form_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.send__popap-btn {
+  width: 50px;
+  height: 40px;
+  border: 1px solid #6c6c6c;
+  font-size: 18px;
+  color: #6c6c6c;
+  border-radius: 7px;
+  color: #6c6c6c;
+  background-color: white;
+  margin: 10px 10px 0 0;
+}
+.btn-submit{
+  margin: 0 10px 10px 0;
+  width: 80px;
+  background-color: #e1e1e1;
+}
+.update-form {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.update-form input {
+  width: 400px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #6c6c6c;
+  color: #6c6c6c;
+  padding: 0 0 0 15px;
+}
+

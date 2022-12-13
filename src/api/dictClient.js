@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createEffect } from "effector";
-import api from "./axiosClient";
+
 
 export const createDictFx = createEffect(async ({ header, dictionarys }) => {
   try {
@@ -15,7 +15,7 @@ export const createDictFx = createEffect(async ({ header, dictionarys }) => {
     console.log(error);
   }
 });
-
+ 
 export const getDictFx = createEffect(async () => {
   try {
     const { data } = await axios.get(
@@ -27,12 +27,22 @@ export const getDictFx = createEffect(async () => {
     console.log(error);
   }
 });
+export const getDictByIdFx = createEffect(async (id) => {
+  try {
+    const { data } = await axios.get(
+      `http://localhost:5000/api/dictionary/get/${id}`,
+      
+    );
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 
 export const deleteDicrFX=createEffect(async (header)=>{
 
-  try {//console.log(header)
-    //Используем header который по факту name  cardCollection
+  try {
      await axios.post(
       "http://localhost:5000/api/dictionary/remove",
       {
@@ -46,11 +56,7 @@ export const deleteDicrFX=createEffect(async (header)=>{
 })
 
 export const updateDictFX=createEffect(async (updateData)=>{
-
   try {
-  //  console.log(updateData.oldName)
-  //  console.log(updateData.newName)
-    // Используем header который по факту name  cardCollection
      await axios.patch(
       "http://localhost:5000/api/dictionary/update",
       {

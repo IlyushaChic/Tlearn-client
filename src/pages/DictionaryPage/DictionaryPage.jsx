@@ -12,68 +12,70 @@ import { getDictFx } from "../../api/dictClient";
 import { getAuthDataFromLS } from "../../utils/auth";
 
 const DictionaryPage = () => {
-const [spinner,setSpunner]=useState(false)
+  const [spinner, setSpunner] = useState(false);
+  const [addDict, setAddDict] = useState(false);
+  const store = useStore($dict);
 
-const [addDict,setAddDict]=useState(false)
+  const authData = getAuthDataFromLS();
 
-const store=useStore($dict) 
+  //! Добавить изменения когда меняется стор
+  useEffect(() => {
+    handleGetDictionary(); 
+    console.log(store);
+  }, [addDict]);
 
-const authData = getAuthDataFromLS();   
 
-//! Добавить изменения когда меняется стор 
-useEffect(()=>{
-  handleGetDictionary()
-},[])
-// нужна альтернатива так как бесконеынй цикл создается 
-// придумать как будет обновляться состояние при добавлении элемента
+  //! сделать эту функцию тдельной и импортируемой
+  const handleGetDictionary = async () => {
+    //в идеаале забирать из локал стораджа данные токена для разрешения выполнения функции
+    //console.log(authData.accessToken);
 
-//! сделать эту функцию тдельной и импортируемой 
-const handleGetDictionary= async ()=>{
+    //{token: authData.accessToken}
+getDictFx().then((result) => setDict(result));
 
-  //в идеаале забирать из локал стораджа данные токена для разрешения выполнения функции
- //console.log(authData.accessToken); 
 
- //{token: authData.accessToken}
-  const dictionary =getDictFx()
-  .then(result=>setDict(result))
-  
- //  console.log(store)
-  // return dict
+    // return dict
+  }; 
 
-}
 
-  //const [dict, setDict] = useState(false);
   const addDictionary = () => {
     setAddDict(true);
   };
   const closeDictionary = () => {
     setAddDict(false);
+    console.log(store);
   };
 
-  return (
-    <div className="body">
-      {addDict ? <FormSendDictionary closeDict={closeDictionary} /> : ""}
-      <Header />
-      {/* <div className="header-dictionary">
-        <div >id</div>
-        <div>Название словаря</div>
-        <div className="words">Слов в словаре</div>
-        <div className="blocki" />
+  return ( 
+    <div className="dictionarypage__wrapper">
+      <div className="dictionarypage__content">
+        <Header />
+        {addDict ? <FormSendDictionary  closeDict={closeDictionary} /> : ""}
+        <div className="dictionarypage__content-header">
+          <div className="dictionarypage__content-header_info">
+            <div>id</div>
+          <div >Название словаря</div>
+          <div >Слов в словаре</div>
+          </div> 
+          
+        </div>
+        {/* {spinner && <Spinner top={70} left={360} />} реализовать!!! */}
+
+        <div className="body-dictionary">
+          {store.map((elem) => (
+            <DictionaryItem key={elem.id}  id={elem.id} names={elem.name}  />
+          ))}
+        </div>
+
+        <div className="dictionarypage__content-btn__wrapper">
+          <button
+            className="dictionarypage__content-btn"
+            onClick={addDictionary}
+          >
+            + Добавить
+          </button>
+        </div>
       </div>
-{spinner && <Spinner top={70} left={360} />}
-
-      <div className="body-dictionary">
-
-
-      {store.map(elem=> <DictionaryItem id={elem.id} names={elem.name} nElems={30}/>)}
-
-      </div>
-
-      <div className="add-dictionary">
-        <button className="btn btn-primary" onClick={addDictionary}>
-          + Добавить
-        </button>
-      </div> */}
     </div>
   );
 };

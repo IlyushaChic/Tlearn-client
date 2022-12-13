@@ -6,7 +6,6 @@ export const handleAlertMesage=(alert)=>{
   setTimeout(()=>setAlert({alertStatus:'',alertText:'',}),3000)
 }
 
-
 export const getAuthDataFromLS=()=>{
 try {
   const LSData=JSON.parse(localStorage.getItem('activate '))

@@ -6,11 +6,10 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const username = useStore($username);
-
   return (
     <header className="header__container">
       <div className="header__content">
-        <div className="header__content-links">
+        <div className="header__content-links"> 
           <NavLink
             to="/dictionary"
             className={({ isActive }) =>
@@ -26,16 +25,11 @@ const Header = () => {
             Пользователи
           </NavLink>
         </div>
-
-        <div className="header-user">
-          <div>
             {username.length ? (
-              <h2 style={{ color: "red", fontSize: "16px" }}>{username}</h2>
-            ) : (
-              ""
-            )}
-          </div>
-          <button className="btn btn-primary">выйти</button>
+              <div className="header__containter-username">{username}</div>):"" 
+            }
+        <div className="header__container-btn__wrapper">
+          <button className="header__container-btn">Выйти</button>
         </div>
       </div>
     </header>

@@ -7,40 +7,27 @@ import { $users, setUsers } from "../../context/users";
 import "./style.css";
 
 const UsersPage = () => {
+  const store = useStore($users);
 
+  useEffect(() => {
+    handleGetUsers();
+  }, []);
 
-
-  const store=useStore($users) 
-
-
-
-  useEffect(()=>{
-    handleGetUsers()
-   // console.log(store)
-  },[])
-
-  
-
-  const handleGetUsers= async ()=>{
-    getUsersFx()
-    .then(result=>setUsers(result))  
-  }
-
-
-
-
+  const handleGetUsers = async () => {
+    getUsersFx().then((result) => setUsers(result));
+  };
 
   return (
-    <div className="users-wrapper">
+    <div className="userspage__wrapper">
       <Header />
-      <div className="block1">
-          <div>id</div>
-          <div>Почта</div>   
-             </div>
+      <div className="userspage__content-info">
+        <div>id</div>
+        <div>Почта</div>
+      </div>
       <div>
-      {store.map(elem=>  <UsersItem id={elem.id} email={elem.email}/>)}
-       
-  
+        {store.map((elem) => (
+          <UsersItem id={elem.id} email={elem.email} />
+        ))}
       </div>
     </div>
   );

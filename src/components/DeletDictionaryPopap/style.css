@@ -1,53 +1,47 @@
-.popap {
+.delete__popap-body-wrapper {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0,0.7);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
-  }
-  
-  .popap__body{
+  }  
+  .delete__popap-body{
     min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px 10px;
-  }
-  
-  
-  .submit-file {
-      border: 1px solid black;
-    background-color:white;
+  } 
+  .delete__popap-body_form {
+    background-color:whitesmoke;
     border-radius: 6px;
-    height: 320px;
+    height: 500px;
     width: 550px;
     display: flex;
- 
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: space-between;
   }
-  
-  .submit-file input {
-      align-items: center;
-      justify-content: center;
-    }
-  
-  
-  
-  .for-text{
-    border: 1px solid black;
-    width: 400px;
-    height: 200px;
+  .delete__popap-btn {
+    width: 50px;
+    height: 40px;
+    border: 1px solid #6c6c6c;
+    font-size: 18px;
+    color: #6c6c6c;
+    border-radius: 7px;
+    color: #6c6c6c;
+    background-color: white;
+    margin: 10px 10px 0 0;
   }
-  
-  .for-header{
-    width: 400px;
-    height: 50px;
-    background-color: transparent;
-    align-items: center;
-    }
-  
-  
-  
-  
+.btn-back{
+  margin: 0 10px 10px 0;
+  width: 80px;
+  background-color: #f9f9f9;
+}
+.btn-submit{
+  margin: 0 10px 10px 0;
+  width: 80px;
+  background-color: #e1e1e1;
+}
+

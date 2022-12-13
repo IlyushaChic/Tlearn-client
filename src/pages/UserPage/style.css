@@ -1,22 +1,30 @@
-.help {
+.userpage__wrapper-info{
   display: flex;
+  justify-content: space-between;
   padding: 10px 0 10px 0;
-  width: 1000px;
-
+  width: 750px;
 }
-
-.help div {
-  width: 200px;
-  margin: 0 10% 0 0;
-}
-
-.user__page-wrapper{
+.userpage__wrapper{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
-
-.user_page-btn{
-  width: 100%;
+.userpage__wrapper-btn_container{
+  width: 100%;  
 }
+.userpage__wrapper-btn{
+  width: 80px;
+height: 40px;
+border: 1px solid #6c6c6c;
+font-size: 18px;
+color:  #6c6c6c;
+border-radius: 7px;
+background: white;
+margin: 10px 0 0 10px;
+}
+.userpage__username{
+  font-size: 20px;
+  color: black;
+  margin: 0 0 10px 0;
+}
+

@@ -9,13 +9,10 @@ import { $alert } from "./context/alert";
 import Alert from './components/Alert/Alert'
 
 function App() { 
-//      {/* <h1>Сделать по красоте </h1>
-// <h1>Добавить анимации нормально так хаверы не ховеры и чотбы все гладко и красиво было  </h1> */}
 
 //  const isLiggedIn = useStore($auth);
   const isLiggedIn = true  
-
-
+  
   const alert =useStore($alert)
 
   return (

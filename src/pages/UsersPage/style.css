@@ -1,17 +1,15 @@
-.block1{
-  display: flex;
-  justify-content: flex-start;
-width: 800px;
-  padding: 15px 0 10px 0;
-}
-.block1 div{
-padding: 0 30px 0 0;
-margin:  0 25% 0 0;
-}
- 
-.users-wrapper{
+.userspage__wrapper{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+}
+.userspage__content-info{
+display: flex;
+width: 750px;
+padding: 10px 10px;
+}
+.userspage__content-info div{
+  margin:  0  200px 0 0;
+  font-size: 16px;
 }

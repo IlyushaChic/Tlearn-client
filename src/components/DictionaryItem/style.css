@@ -1,25 +1,49 @@
-.body-dictionary_item{
+
+.dictionaryitem__container{
+
+  padding: 30px ;
+  margin: 20px;
+  width: 1000px;
+height: 100px;
   display: flex;
-  justify-content: space-between;
-align-items: center;
-  border: 1px solid black;
-  width: 800px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 15px;
+  align-items: center;
+  background-color: white; 
+  box-shadow: 0 0 5px rgba(0,0,0,0.25);
 }
 
-.name{
-  width: 160px;
+.dictionaryitem__container-info{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+.dictionaryitem__container-info div {
+  width: 100px;
   text-align: center;
+font-size: 18px;
+color:  #6c6c6c; ;
 }
 
-.word{
-  width: 40px;
-  text-align: center;
+.dictionaryitem__container-btns{
+  width: 400px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.dictionaryitem__container-btn{
+border: 1px solid #6c6c6c;
+font-size: 18px;
+color:  #6c6c6c;
+border-radius: 7px;
+margin: 10px;
+padding:5px 10px ;
 }
 
+.btn-update{
+  background-color: #f9f9f9;
+}
 
-  .body-dictionary_item button{
-    margin: 0 0  0 15px;
-  }
+.btn-remove{
+  background-color: #ededed;
+}
+

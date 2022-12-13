@@ -3,11 +3,11 @@ import { useRef } from "react";
 import "./styles.css";
 
 import Spinner from "../Spinner/Spinner";
-import { createDictFx, getDictFx } from "../../api/dictClient";
-import { setDict } from "../../context/distionary";
+import { createDictFx, getDictFx } from "../../api/dictClient"; 
+import { $dict, setDict, } from "../../context/distionary";
 import { handleAlertMesage } from "../../utils/auth";
-const FormSendDictionary = ({ closeDict }) => {
-  //! отправка через сабмит
+import { useStore } from "effector-react";
+const FormSendDictionary = ({ closeDict, }) => {
 
   const [file, setFile] = useState(false);
   const [fileName, setFileName] = useState("");
@@ -15,26 +15,17 @@ const FormSendDictionary = ({ closeDict }) => {
   const [title, setTitle] = useState("");
 
   const [spinner, setSpinner] = useState(false);
+  const [data,setDate]=useState([]) 
 
+  const store=useStore($dict)
 
-
-
-
-
-  useEffect(()=>{
-    handleGetDictionary()
-  },[])
-  
   const handleGetDictionary= async ()=>{  
     getDictFx()
-    .then(result=>{    
-      setDict(result)
+    .then(result=>{ setDict(result)
     }
       )
-    // return dict
   } 
-  
-  
+   
   let inputValueFikeRef = useRef();
   const changeInpt = () => {
     let fileName = inputValueFikeRef.current.files[0].name;
@@ -42,14 +33,13 @@ const FormSendDictionary = ({ closeDict }) => {
     setFile(true);
   };
 
-
   const addDictionaryFile = async (e) => {
     e.preventDefault();
     setSpinner(true);
+    createDictFx({header:title,dictionarys:inputValueFikeRef.current.files[0]})
     setTimeout(() => {
 
-
-createDictFx({header:title,dictionarys:inputValueFikeRef.current.files[0]}).then(()=>  handleGetDictionary()) 
+ handleGetDictionary()
       setSpinner(false);
       closeDict();
       handleAlertMesage({
@@ -57,49 +47,23 @@ createDictFx({header:title,dictionarys:inputValueFikeRef.current.files[0]}).then
         alertStatus: "success",
       });
     }, 1000);
-    //!вывести алерт что успешно или нет
-
-    // console.log(fileName);
-    // console.log(inputValueFikeRef.current.files);
-    // console.log(title);
-
-    //{header,dictionarys}
-    
-  // console.log(result)
-
-
-    //! Отправлялся запрос сразу в БД и добавлялся тикет
   };
-
-
-
-
-
-
-
-
-  
-
 
   const closePopap = () => {
     closeDict();
   };
 
   return (
-    <div className="popap">
-      <div className="popap__body">
-        {/* onSubmit={closeDict} */}
-        <form
-          className="submit-file"
-          style={{ alignItems: "flex-end" }}
+    <div className="send__popap-wrapper">
+      <div className="send__popap-body">
+         <form
+          className="send__popap-body_form"
           action="#"
         >
-          <button className="btn btn-danger" onClick={closePopap}>
+          <button className="send__popap-btn" onClick={closePopap}>
             X
           </button>
-
-          <div className="form-wrapper">
-            <div className="input__wrapper">
+          <div className="send__popap-body_form-content">
               <input
                 type="file"
                 name="file"
@@ -111,19 +75,17 @@ createDictFx({header:title,dictionarys:inputValueFikeRef.current.files[0]}).then
               <label className="input__file-button" htmlFor="input__file">
                 {file ? `${fileName}` : "+ Выберите файл"}
               </label>
-            </div>
-            <div className="input_header_wrapper">
+      <div className="input__header_wrapper">
               <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="for-header"
+                className="input__headername"
                 type="text"
                 placeholder="Введите новое название словаря"
               />
-            </div>
           </div>
-
-          <button className="btn btn-primary" onClick={addDictionaryFile}>
+            </div>
+              <button className="send__popap-btn btn-submit" onClick={addDictionaryFile}>
             {spinner ? <Spinner top={0} left={0} /> : "Далее"}
           </button>
         </form>

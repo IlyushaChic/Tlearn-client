@@ -7,71 +7,47 @@ import Spinner from "../Spinner/Spinner";
 import "./style.css";
 const FormUpdatePopap = ({ onClose,oldName }) => {
 
-  const [spinner,setSpinner]=useState(false)
-  const store=useStore($dict)
-
+  const [spinner,setSpinner]=useState(false) 
   const [header,setHeader]=useState('')
 
-
-  useEffect(()=>{
-    handleGetDictionary() 
-  
-  
-  },[])
-  
-  const handleGetDictionary= async ()=>{  
-    getDictFx()
-    .then(result=>{    
-      setDict(result)
-    }
-      )
-    // return dict
-  } 
-
-
   const onUpdate=async (e)=>{
-
     e.preventDefault()
     setSpinner(true);
-
     const updateData={
       oldName:oldName,
       newName:header
     }
-//    console.log(oldName,header)
+  updateDictFX(updateData)
   setTimeout(() => {
-  updateDictFX(updateData).then(()=>handleGetDictionary())
-setSpinner(false);
+  setSpinner(false);
   onClose(e)
   handleAlertMesage({
     alertText: "Словарь успешно обновлен",
     alertStatus: "success",
   });
-}, 1000);
-
+  }, 1000);
   }
 
-
-
-
-
-  //! отправка через сабмит
   return (
-    <div className="popap">
-      <div className="popap__body">
-        <form  className="submit-file" action="#">
-          <button className="btn btn-danger" onClick={onClose}>
+    <div className="update__popap-wrapper">
+      <div className="update__popap-body">
+
+        <form  className="update__popap-body_form" action="#">
+          
+          <div className="update__popap-body_form_content">
+          <button className="send__popap-btn" onClick={onClose}>
             X
           </button>
           <div className="update-form">
-           <p>Введите новое название словаря</p>
-          <input value={header} onChange={(e)=>setHeader(e.target.value)} type="text" />
+          <p style={{color:'#6c6c6c'}}>Введите новое название словаря</p>
+          <input  value={header} onChange={(e)=>setHeader(e.target.value)} type="text" />
           </div>
-
-
-          <button className="btn btn-primary" onClick={onUpdate}>
+          <button className="send__popap-btn btn-submit" onClick={onUpdate}>
           {spinner ? <Spinner top={0} left={0} /> : "Далее"}
           </button>
+
+          </div>
+
         </form>
       </div>
     </div>

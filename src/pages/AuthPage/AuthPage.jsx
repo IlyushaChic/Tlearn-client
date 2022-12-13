@@ -46,7 +46,7 @@ const AuthPage = ({ type }) => {
       setSpinner(false);
       handleAlertMesage({
         alertText: "Заполните поле email",
-        alertStatus: "warning",
+        alertStatus: "warning", 
       });
       return;
     }
