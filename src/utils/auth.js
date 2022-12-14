@@ -1,4 +1,15 @@
 import { setAlert } from "../context/alert"
+import { setAuth, setUserName } from "../context/auth"
+import { setDict } from "../context/distionary"
+
+
+
+export const removeUser=()=>{
+localStorage.removeItem('auth')
+setAuth(false)
+setUserName('')
+setDict([])
+}
 
 
 export const handleAlertMesage=(alert)=>{  
@@ -8,7 +19,11 @@ export const handleAlertMesage=(alert)=>{
 
 export const getAuthDataFromLS=()=>{
 try {
-  const LSData=JSON.parse(localStorage.getItem('activate '))
+  const LSData=JSON.parse(localStorage.getItem('auth'))
+  if(!LSData){
+    removeUser()
+    return 
+  }
   return LSData
   } catch (error) {
   console.log(error);

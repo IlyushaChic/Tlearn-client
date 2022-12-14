@@ -5,17 +5,14 @@ import "./styles.css";
 import Spinner from "../Spinner/Spinner";
 import { createDictFx, getDictFx } from "../../api/dictClient"; 
 import { $dict, setDict, } from "../../context/distionary";
-import { handleAlertMesage } from "../../utils/auth";
+import { getAuthDataFromLS, handleAlertMesage } from "../../utils/auth";
 import { useStore } from "effector-react";
 const FormSendDictionary = ({ closeDict, }) => {
 
   const [file, setFile] = useState(false);
   const [fileName, setFileName] = useState("");
-
   const [title, setTitle] = useState("");
-
   const [spinner, setSpinner] = useState(false);
-  const [data,setDate]=useState([]) 
 
   const store=useStore($dict)
 
@@ -25,18 +22,18 @@ const FormSendDictionary = ({ closeDict, }) => {
     }
       )
   } 
-   
   let inputValueFikeRef = useRef();
   const changeInpt = () => {
     let fileName = inputValueFikeRef.current.files[0].name;
     setFileName(fileName);
-    setFile(true);
+    setFile(true); 
   };
 
   const addDictionaryFile = async (e) => {
     e.preventDefault();
     setSpinner(true);
-    createDictFx({header:title,dictionarys:inputValueFikeRef.current.files[0]})
+    const authData=getAuthDataFromLS() 
+    createDictFx({header:title,dictionarys:inputValueFikeRef.current.files[0],token:authData.accessToken})
     setTimeout(() => {
 
  handleGetDictionary()

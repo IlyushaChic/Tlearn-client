@@ -12,11 +12,11 @@ const FormRemoveDictionary = ({ onClose, name, }) => {
     e.preventDefault();
     setSpinner(true);
 
- 
-    // const qwerty=getAuthDataFromLS//!пока не надо 
+
     setTimeout(() => {
       setSpinner(false); 
-      deleteDicrFX(name);
+      const authData=getAuthDataFromLS()
+      deleteDicrFX({header:name,token:authData.accessToken});
         removeDict(name)
       onClose(e);
       handleAlertMesage({

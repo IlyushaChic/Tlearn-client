@@ -59,6 +59,7 @@ const AuthPage = ({ type }) => {
       return;
     }
     const result = await AuthClient.login(email);
+    
     handleAuthResponse(
       result,
       "/activate",
@@ -84,14 +85,18 @@ const AuthPage = ({ type }) => {
       });
       return;
     }
-    const result = await AuthClient.activate(activationLink);
-    handleAuthResponse(result, "/dictionary", "Вход выполнен");
+    setTimeout(()=>{
+const result = AuthClient.activate(activationLink).then(result=>console.log(result))
+
+handleAuthResponse(result, "/dictionary", "Вход выполнен");
+    },2000)
+    
   };
 
   const handleAuth = (e) => {
     e.preventDefault();
     setSpinner(true);
-    switch (type) {
+    switch (typePage) {
       case "/login":
         handleLogin(emailRef.current.value);
         break;
@@ -104,6 +109,7 @@ const AuthPage = ({ type }) => {
   };
   const backPath = (e) => {
     e.preventDefault();
+    setSend("");
     setTypePage("/login");
   };
 

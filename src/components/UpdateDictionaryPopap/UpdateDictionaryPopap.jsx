@@ -2,7 +2,7 @@ import { useStore } from "effector-react";
 import React, { useEffect, useState } from "react";
 import { getDictFx, updateDictFX } from "../../api/dictClient";
 import { $dict, setDict } from "../../context/distionary";
-import { handleAlertMesage } from "../../utils/auth";
+import { getAuthDataFromLS, handleAlertMesage } from "../../utils/auth";
 import Spinner from "../Spinner/Spinner";
 import "./style.css";
 const FormUpdatePopap = ({ onClose,oldName }) => {
@@ -17,7 +17,9 @@ const FormUpdatePopap = ({ onClose,oldName }) => {
       oldName:oldName,
       newName:header
     }
-  updateDictFX(updateData)
+
+const authData=getAuthDataFromLS()
+  updateDictFX({updateData,token:authData.accessToken})
   setTimeout(() => {
   setSpinner(false);
   onClose(e)

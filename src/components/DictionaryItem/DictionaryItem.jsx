@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDictByIdFx } from "../../api/dictClient";
 import { getUserDataFx } from "../../api/userClient";
+import { getAuthDataFromLS } from "../../utils/auth";
 import FormRemoveDictionary from "../DeletDictionaryPopap/DeletDictionaryPopap";
 import FormSendDictionary from "../FormSendDictionary/FormSendDictionary";
 import FormUpdatePopap from "../UpdateDictionaryPopap/UpdateDictionaryPopap";
@@ -14,7 +15,8 @@ const [updateDict,setUpdateDist]=useState(false)
 const [data,setDate]=useState([]) 
 
 useEffect(()=>{ 
-  getDictByIdFx(id).then(res=>setDate(res))
+  const authData=getAuthDataFromLS()
+  getDictByIdFx({id,token:authData.accessToken}).then(res=>setDate(res))
 },[updateDict])
 
 const removeItem=(e)=>{

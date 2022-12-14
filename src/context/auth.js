@@ -1,7 +1,6 @@
 import {createDomain} from 'effector'
 
 
-//! Создавать разные омены к разным данным по такому типу 
 const auth=createDomain()
 export const setAuth=auth.createEvent()
 export const setUserName=auth.createEvent()

@@ -4,6 +4,7 @@ import { getUsersFx } from "../../api/userClient";
 import Header from "../../components/Header/Header";
 import UsersItem from "../../components/UsersItem/UsersItem";
 import { $users, setUsers } from "../../context/users";
+import { getAuthDataFromLS } from "../../utils/auth";
 import "./style.css";
 
 const UsersPage = () => {
@@ -14,7 +15,9 @@ const UsersPage = () => {
   }, []);
 
   const handleGetUsers = async () => {
-    getUsersFx().then((result) => setUsers(result));
+    const authData=getAuthDataFromLS()
+
+    getUsersFx({token:authData.accessToken}).then((result) => setUsers(result));
   };
 
   return (
@@ -26,7 +29,7 @@ const UsersPage = () => {
       </div>
       <div>
         {store.map((elem) => (
-          <UsersItem id={elem.id} email={elem.email} />
+          <UsersItem key={elem.id}id={elem.id} email={elem.email} />
         ))}
       </div>
     </div>

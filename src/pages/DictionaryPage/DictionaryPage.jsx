@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import DictionaryItem from "../../components/DictionaryItem/DictionaryItem";
 import FormSendDictionary from "../../components/FormSendDictionary/FormSendDictionary";
-import FormRemoveDictionary from "../../components/DeletDictionaryPopap/DeletDictionaryPopap";
 import Header from "../../components/Header/Header";
 import "./style.css";
 import { useEffect } from "react";
@@ -15,35 +14,26 @@ const DictionaryPage = () => {
   const [spinner, setSpunner] = useState(false);
   const [addDict, setAddDict] = useState(false);
   const store = useStore($dict);
-
   const authData = getAuthDataFromLS();
 
   //! Добавить изменения когда меняется стор
   useEffect(() => {
     handleGetDictionary(); 
-    console.log(store);
-  }, [addDict]);
+   }, [addDict]);
 
 
-  //! сделать эту функцию тдельной и импортируемой
+  //! сделать эту функцию  импортируемой и вынести
   const handleGetDictionary = async () => {
-    //в идеаале забирать из локал стораджа данные токена для разрешения выполнения функции
-    //console.log(authData.accessToken);
-
-    //{token: authData.accessToken}
-getDictFx().then((result) => setDict(result));
-
-
-    // return dict
+    const authData=getAuthDataFromLS()
+    getDictFx({token: authData.accessToken}).then((result) => setDict(result));
   }; 
-
 
   const addDictionary = () => {
     setAddDict(true);
   };
+
   const closeDictionary = () => {
     setAddDict(false);
-    console.log(store);
   };
 
   return ( 

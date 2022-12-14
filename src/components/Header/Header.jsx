@@ -3,9 +3,26 @@ import "./style.css";
 import { useStore } from "effector-react";
 import { $username } from "../../context/auth";
 import { NavLink } from "react-router-dom";
+import { handleAlertMesage, removeUser } from "../../utils/auth";
+import { useState } from "react";
+import Spinner from "../Spinner/Spinner";
 
 const Header = () => {
   const username = useStore($username);
+
+  const[spinner,setSpinner]=useState(false)
+const goOut=()=>{
+
+setSpinner(true)
+setTimeout(()=>{
+    removeUser()
+    handleAlertMesage({
+      alertText: "Выход успешно осуществлен",
+      alertStatus: "success",
+    }); 
+},1000)
+}
+
   return (
     <header className="header__container">
       <div className="header__content">
@@ -29,7 +46,9 @@ const Header = () => {
               <div className="header__containter-username">{username}</div>):"" 
             }
         <div className="header__container-btn__wrapper">
-          <button className="header__container-btn">Выйти</button>
+          <button className="header__container-btn" onClick={goOut}>
+          {spinner ? <Spinner top={0} left={0} /> : "Выйти"}
+            </button>
         </div>
       </div>
     </header>

@@ -3,17 +3,26 @@ import DictionaryPage from "./pages/DictionaryPage/DictionaryPage";
 import UserPages from "./pages/UserPage/UserPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { $auth } from "./context/auth";
+import { $auth, setAuth, setUserName } from "./context/auth";
 import { useStore } from "effector-react";
 import { $alert } from "./context/alert";
 import Alert from './components/Alert/Alert'
+import { getAuthDataFromLS, removeUser } from "./utils/auth";
+import { useEffect } from "react";
 
 function App() { 
-
-//  const isLiggedIn = useStore($auth);
-  const isLiggedIn = true  
-  
   const alert =useStore($alert)
+  let isLiggedIn = useStore($auth);
+
+  useEffect(() => {
+    const auth = getAuthDataFromLS();
+    if (!auth || !auth.accessToken || !auth.refreshToken) {
+      removeUser();
+    } else {
+      setAuth(true);
+      setUserName(auth.username);
+    }
+  }, []);
 
   return (
     <>
