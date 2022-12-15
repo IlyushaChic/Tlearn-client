@@ -48,6 +48,7 @@ export const getDictByIdFx = createEffect(async ({id,token}) => {
 
 
 export const deleteDicrFX=createEffect(async ({header,token})=>{
+console.log(header,token);
 
   try {
     await axios.post(

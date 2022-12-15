@@ -8,15 +8,15 @@ import "./style.css";
 const FormRemoveDictionary = ({ onClose, name, }) => {
   const [spinner, setSpinner] = useState(false);
   const store = useStore($dict);
-  const onRemove = async (e) => {
+  const onRemove = async (e) => { 
     e.preventDefault();
     setSpinner(true);
-
-
-    setTimeout(() => {
-      setSpinner(false); 
       const authData=getAuthDataFromLS()
       deleteDicrFX({header:name,token:authData.accessToken});
+    setTimeout(() => {
+      setSpinner(false); 
+
+
         removeDict(name)
       onClose(e);
       handleAlertMesage({

@@ -8,7 +8,7 @@ import { useStore } from "effector-react";
 import { $alert } from "./context/alert";
 import Alert from './components/Alert/Alert'
 import { getAuthDataFromLS, removeUser } from "./utils/auth";
-import { useEffect } from "react";
+import React,{ useEffect } from "react";
 
 function App() { 
   const alert =useStore($alert)
