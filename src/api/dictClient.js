@@ -12,7 +12,9 @@ export const createDictFx = createEffect(async ({ header, dictionarys ,token}) =
     formData.append("dictionarys", dictionarys);
     formData.append("header", header);
     const request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:5000/api/dictionary/add",{headers:{'Authorization':`Bearer ${token}`}});
+    request.open("POST", "http://localhost:5000/api/dictionary/add");
+    console.log(token)
+    request.setRequestHeader('Authorization',`Bearer ${token}`)
     request.send(formData);
     return;
   } catch (error) {

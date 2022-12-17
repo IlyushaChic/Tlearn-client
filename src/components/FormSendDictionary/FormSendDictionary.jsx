@@ -3,40 +3,42 @@ import { useRef } from "react";
 import "./styles.css";
 
 import Spinner from "../Spinner/Spinner";
-import { createDictFx, getDictFx } from "../../api/dictClient"; 
-import { $dict, setDict, } from "../../context/distionary";
+import { createDictFx, getDictFx } from "../../api/dictClient";
+import { $dict, setDict } from "../../context/distionary";
 import { getAuthDataFromLS, handleAlertMesage } from "../../utils/auth";
 import { useStore } from "effector-react";
-const FormSendDictionary = ({ closeDict, }) => {
-
+const FormSendDictionary = ({ closeDict }) => {
   const [file, setFile] = useState(false);
   const [fileName, setFileName] = useState("");
   const [title, setTitle] = useState("");
   const [spinner, setSpinner] = useState(false);
 
-  const store=useStore($dict)
+  const store = useStore($dict);
 
-  const handleGetDictionary= async ()=>{  
-    getDictFx()
-    .then(result=>{ setDict(result)
-    }
-      )
-  } 
+  const handleGetDictionary = async () => {
+    const authData = getAuthDataFromLS();
+    getDictFx({ token: authData.accessToken }).then((result) => {
+      setDict(result);
+    });
+  };
   let inputValueFikeRef = useRef();
   const changeInpt = () => {
     let fileName = inputValueFikeRef.current.files[0].name;
     setFileName(fileName);
-    setFile(true); 
+    setFile(true);
   };
 
   const addDictionaryFile = async (e) => {
     e.preventDefault();
     setSpinner(true);
-    const authData=getAuthDataFromLS() 
-    createDictFx({header:title,dictionarys:inputValueFikeRef.current.files[0],token:authData.accessToken})
+    const authData = getAuthDataFromLS();
+    createDictFx({
+      header: title,
+      dictionarys: inputValueFikeRef.current.files[0],
+      token: authData.accessToken,
+    });
     setTimeout(() => {
-
- handleGetDictionary()
+      handleGetDictionary();
       setSpinner(false);
       closeDict();
       handleAlertMesage({
@@ -53,26 +55,23 @@ const FormSendDictionary = ({ closeDict, }) => {
   return (
     <div className="send__popap-wrapper">
       <div className="send__popap-body">
-         <form
-          className="send__popap-body_form"
-          action="#"
-        >
+        <form className="send__popap-body_form" action="#">
           <button className="send__popap-btn" onClick={closePopap}>
             X
           </button>
           <div className="send__popap-body_form-content">
-              <input
-                type="file"
-                name="file"
-                id="input__file"
-                onChange={changeInpt}
-                className="input input__file"
-                ref={inputValueFikeRef}
-              />
-              <label className="input__file-button" htmlFor="input__file">
-                {file ? `${fileName}` : "+ Выберите файл"}
-              </label>
-      <div className="input__header_wrapper">
+            <input
+              type="file"
+              name="file"
+              id="input__file"
+              onChange={changeInpt}
+              className="input input__file"
+              ref={inputValueFikeRef}
+            />
+            <label className="input__file-button" htmlFor="input__file">
+              {file ? `${fileName}` : "+ Выберите файл"}
+            </label>
+            <div className="input__header_wrapper">
               <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -80,9 +79,12 @@ const FormSendDictionary = ({ closeDict, }) => {
                 type="text"
                 placeholder="Введите новое название словаря"
               />
-          </div>
             </div>
-              <button className="send__popap-btn btn-submit" onClick={addDictionaryFile}>
+          </div>
+          <button
+            className="send__popap-btn btn-submit"
+            onClick={addDictionaryFile}
+          >
             {spinner ? <Spinner top={0} left={0} /> : "Далее"}
           </button>
         </form>
