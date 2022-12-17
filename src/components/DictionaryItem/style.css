@@ -1,49 +1,63 @@
-
-.dictionaryitem__container{
-
-  padding: 30px ;
+.dictionaryitem__container { 
+  padding: 10px 20px; 
   margin: 20px;
-  width: 1000px;
-height: 100px;
+  max-width: 100%; 
+  height: 100px;
   display: flex;
   align-items: center;
-  background-color: white; 
-  box-shadow: 0 0 5px rgba(0,0,0,0.25);
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  justify-content: space-between;
 }
-
-.dictionaryitem__container-info{
-    width: 500px;
-    display: flex;
-    justify-content: space-between;
+.dictionaryitem__container-info {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .dictionaryitem__container-info div {
-  width: 100px;
+  width: 100%;
   text-align: center;
-font-size: 18px;
-color:  #6c6c6c; ;
+  font-size: 18px;
+  color: #6c6c6c;
 }
-
-.dictionaryitem__container-btns{
+.dictionaryitem__container-btns {
   width: 400px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.dictionaryitem__container-btn{
-border: 1px solid #6c6c6c;
-font-size: 18px;
-color:  #6c6c6c;
-border-radius: 7px;
-margin: 10px;
-padding:5px 10px ;
+.dictionaryitem__container-btn {
+  border: 1px solid #6c6c6c;
+  font-size: 18px;
+  color: #6c6c6c;
+  border-radius: 7px;
+  margin: 10px;
+  padding: 5px 10px;
 }
-
-.btn-update{
+.btn-update {
   background-color: #f9f9f9;
 }
-
-.btn-remove{
+.btn-remove {
   background-color: #ededed;
 }
-
+@media screen and (max-width: 900px) {
+  .dictionaryitem__container-btns {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .dictionaryitem__container-btn {
+    width: 115px;
+    font-size: 14px;
+    color: #6c6c6c;
+    margin: 5px;
+    padding: 2px 5px;
+  }
+}
+.collectionName{
+  min-width: 170px;
+}

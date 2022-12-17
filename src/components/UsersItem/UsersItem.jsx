@@ -18,7 +18,7 @@ const UsersItem = ({ id, email }) => {
         >
           Профиль
         </button>
-      </div>
+      </div> 
     </div>
   );
 };

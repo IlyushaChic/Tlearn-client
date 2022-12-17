@@ -11,9 +11,9 @@ const UserPageItem = ({  id,  naming,  words,}) => {
             <div>-</div>
             <div>-</div>
             <hr />
-          </div>
+          </div> 
         </div>
   );
-};
+}; 
 
 export default UserPageItem;

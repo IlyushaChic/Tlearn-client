@@ -24,26 +24,49 @@ const UserPage = () => {
         <div className="userpage__wrapper">
           <Header />
           <div className="userpage__wrapper-btn_container">
+            <div className="userpage__wrapper-btn_block">
             <button
               className="userpage__wrapper-btn"
               onClick={() => navigate(-1)}
             >
               Назад
             </button>
+            <div className="userpage__wrapper-btn_user-block">
+              <button
+              className="userpage__wrapper-btn" 
+              onClick={() => {}}
+            >
+              Удалить
+            </button>
+            <button
+              className="userpage__wrapper-btn progress"
+              onClick={() => {}}
+            >
+              Выгрузить прогресс
+            </button>
+            </div>
+            
+</div>
+
+
           </div>
             <div className="userpage__username">{data?.email} </div>
             <div className="userpage__wrapper-info "> 
               <div>id</div>
               <div>Название словаря</div>
               <div>слов в словаре</div>
-              <div>выученные</div> 
+              <div>выученные</div>  
               <div>в процессе</div>
+
             </div>
+            
             <UserPageItem
               id={data?.id}
               naming={data?.collectionName}
               words={data?.nElems}
             />
+
+
         </div>
       ) : (
         <div className="userpage__wrapper">

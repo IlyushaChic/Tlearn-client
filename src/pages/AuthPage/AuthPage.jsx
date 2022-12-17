@@ -41,7 +41,7 @@ const AuthPage = ({ type }) => {
   }
   const handleLogin = async (email) => {
     const validate= validateEmailAddres(email)
-    console.log(validate)
+    // console.log(validate)
     if (!email) {
       setSpinner(false);
       handleAlertMesage({

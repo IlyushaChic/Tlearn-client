@@ -14,19 +14,19 @@ const DictionaryPage = () => {
   const [spinner, setSpunner] = useState(false);
   const [addDict, setAddDict] = useState(false);
   const store = useStore($dict);
-  const authData = getAuthDataFromLS();
 
-  //! Добавить изменения когда меняется стор
   useEffect(() => {
-    handleGetDictionary(); 
-   }, [addDict]);
+    setSpunner(true);
+    handleGetDictionary();
+    setSpunner(false);
+  }, [addDict]);
 
-
-  //! сделать эту функцию  импортируемой и вынести
   const handleGetDictionary = async () => {
-    const authData=getAuthDataFromLS()
-    getDictFx({token: authData.accessToken}).then((result) => setDict(result));
-  }; 
+    const authData = getAuthDataFromLS();
+    getDictFx({ token: authData.accessToken }).then((result) =>
+      setDict(result)
+    );
+  };
 
   const addDictionary = () => {
     setAddDict(true);
@@ -36,27 +36,39 @@ const DictionaryPage = () => {
     setAddDict(false);
   };
 
-  return ( 
+  return (
     <div className="dictionarypage__wrapper">
       <div className="dictionarypage__content">
         <Header />
-        {addDict ? <FormSendDictionary  closeDict={closeDictionary} /> : ""}
+        {addDict ? <FormSendDictionary closeDict={closeDictionary} /> : ""}
+        
+        
+        
+        
+        
         <div className="dictionarypage__content-header">
-          <div className="dictionarypage__content-header_info">
-            <div>id</div>
-          <div >Название словаря</div>
-          <div >Слов в словаре</div>
-          </div> 
-          
-        </div>
-        {/* {spinner && <Spinner top={70} left={360} />} реализовать!!! */}
+          <div className="dictionarypage__content-header_container">
+            
+            <div className="dictionarypage__content-header_info">
+              <div>id</div>
+              <div>Название словаря</div>
+              <div>Слов в словаре</div>
+            </div>
 
+            <div className="nothing" />
+          </div>
+        </div>
+
+
+
+
+
+        {spinner && <Spinner top={0} left={0} />}
         <div className="body-dictionary">
           {store.map((elem) => (
-            <DictionaryItem key={elem.id}  id={elem.id} names={elem.name}  />
+            <DictionaryItem key={elem.id} id={elem.id} names={elem.name} />
           ))}
         </div>
-
         <div className="dictionarypage__content-btn__wrapper">
           <button
             className="dictionarypage__content-btn"

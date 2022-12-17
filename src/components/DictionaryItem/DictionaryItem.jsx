@@ -22,7 +22,7 @@ useEffect(()=>{
 const removeItem=(e)=>{
   e.preventDefault()
   setDeleteDict(true)
-}
+} 
 
 const closeDict=(event)=>{
   event.preventDefault();
@@ -45,9 +45,9 @@ function closeUpdateDict(event){
       {updateDict?<FormUpdatePopap  oldName={names}onClose={closeUpdateDict}/> :''}
         
         <div className="dictionaryitem__container-info">
-      <div>{data.id}</div>
-      <div className="name">{data.collectionName}</div>
-      <div className="word">{data.nElems}</div>
+      <div >{data.id}</div>
+      <div className="collectionName" >{data.collectionName}</div>
+      <div >{data.nElems}</div>
         </div>
 
       <div className="dictionaryitem__container-btns">
@@ -59,3 +59,4 @@ function closeUpdateDict(event){
 };
 
 export default DictionaryItem;
+ 

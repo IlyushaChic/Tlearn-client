@@ -1,8 +1,13 @@
 .userpage__wrapper-info{
   display: flex;
   justify-content: space-between;
-  padding: 10px 0 10px 0;
-  width: 750px;
+  padding: 20px; 
+  margin: 20px;
+  width: 80%
+}
+.userpage__wrapper-info div{
+text-align: center;
+  width: 100%
 }
 .userpage__wrapper{
   display: flex;
@@ -21,10 +26,23 @@ color:  #6c6c6c;
 border-radius: 7px;
 background: white;
 margin: 10px 0 0 10px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .userpage__username{
   font-size: 20px;
   color: black;
   margin: 0 0 10px 0;
 }
-
+.progress{
+  width: 200px;
+}
+.userpage__wrapper-btn_block{
+  display: flex;
+  justify-content: space-between;
+}
+.userpage__wrapper-btn_user-block{
+  display: flex;
+  margin:  0 10px 0 0;
+}

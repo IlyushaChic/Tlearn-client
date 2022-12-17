@@ -15,23 +15,30 @@ const UsersPage = () => {
   }, []);
 
   const handleGetUsers = async () => {
-    const authData=getAuthDataFromLS()
+    const authData = getAuthDataFromLS();
 
-    getUsersFx({token:authData.accessToken}).then((result) => setUsers(result));
+    getUsersFx({ token: authData.accessToken }).then((result) =>
+      setUsers(result)
+    );
   };
 
   return (
     <div className="userspage__wrapper">
       <Header />
-      <div className="userspage__content-info">
-        <div>id</div>
-        <div>Почта</div>
+      <div className="userspage__content-header_info">
+        <div className="userpage__content-header_info-container">
+          <div className="userpage__content-header_info-info">
+            <div className="userpage__content-id">id</div>
+            <div className="userpage__content-email">Почта</div>
+          </div>
+          <div className="nothing" />
+        </div>
       </div>
-      <div>
+      <div className="userpage__content-item">
         {store.map((elem) => (
-          <UsersItem key={elem.id}id={elem.id} email={elem.email} />
+          <UsersItem key={elem.id} id={elem.id} email={elem.email} />
         ))}
-      </div>
+    </div>
     </div>
   );
 };

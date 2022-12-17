@@ -1,15 +1,50 @@
 .userspage__wrapper{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; 
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 }
-.userspage__content-info{
-display: flex;
-width: 750px;
-padding: 10px 10px;
+.userspage__content-header_info{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .userspage__content-info div{
   margin:  0  200px 0 0;
   font-size: 16px;
+}
+.userpage__content-header_info-container{
+  width: 100%;
+  margin: 20px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userpage__content-header_info-info{
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userpage__content-header_info-info div{
+
+  text-align: center;
+  font-size: 18px;
+  color: #6c6c6c;
+}
+.nothing{
+  width: 400px;
+  height: 50px;
+}
+.userpage__content-item{
+  width: 80%;
+}
+.userpage__content-email{
+  width: 200px;
+}
+.userpage__content-id{
+  width: 140px;
 }

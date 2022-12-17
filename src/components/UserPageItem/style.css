@@ -1,24 +1,8 @@
-.qwe {
-  display: flex;
-
-  padding: 10px 0 10px 0;
-  justify-content: space-between;
-  align-items: center;
-  width: 1000px;
-  border: 1px solid black;
-  border-radius: 15px;
-  margin: 10px 0;
-}
-
-.qwe div {
-  width: 100px;
-  margin: 0 90px 0 0;
-}
-
 .userpageitem__container {
+
   padding: 30px;
   margin: 20px;
-  width: 1000px;
+  width: 80%;
   height: 100px;
   display: flex;
   align-items: center;
@@ -28,7 +12,7 @@
 .userpageitem__container-info{
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: center; 
   justify-content: space-between;
 }
 .userpageitem__container-info div{
